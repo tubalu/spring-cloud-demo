@@ -39,15 +39,13 @@ public class ReservationClientApplication {
 
 }
 
-@RefreshScope
 @RestController
-@RequestMapping("/reservations")
 class ReservationApiGetwayController {
 
     @Autowired
     RestTemplate restTemplate;
 
-    @GetMapping("/names")
+    @GetMapping(value = "/names",produces = "application/json")
     public List<String> getReservationNames() throws JsonProcessingException {
         ParameterizedTypeReference<Resources<Reservation>> ptr = new ParameterizedTypeReference<Resources<Reservation>>() {
         };
